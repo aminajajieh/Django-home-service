@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="innerHeading">
+  <div class="container">
+    <h1>{{ post.title }}</h1>
+  </div>
+</div>
+<section>
+<div class="innercontent">
+  <div class="container">
+    <div class="row blog_details">
+      <div class="col">
+        <div class="services_box wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+          <div class="servicesImg"><img alt="" src="{{ post.img.url }}"></div>
+
+                  <div style="text-align: right; margin-top: 60px;" dir="rtl">{{ my_text_with_html|safe }}
+{% autoescape off %}
+{{ post.المقال }}
+{% endautoescape %}</div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+</section>
+
+{% endblock content %}

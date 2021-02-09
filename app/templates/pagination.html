@@ -1,0 +1,17 @@
+
+<div class="blog-pagination text-center">
+    {% if page.has_next %}
+    <a href="?page={{page.next_page_number}}"><i class="fas fa-angle-left" aria-hidden="true" style="padding-top: 15px;"></i></a>
+    {% else %}
+    <a href="#"><i class="fas fa-angle-left" aria-hidden="true" style="padding-top: 15px;"></i></a>
+    {% endif %}
+
+    <a href="#" class="active">{{page.number}}</a>
+
+    {% if page.has_previous %}
+    <a href="?page={{page.previous_page_number}}"><i class="fas fa-angle-right" aria-hidden="true" style="padding-top: 15px;"></i></a>
+    {% else %}
+    <a href="#"><i class="fas fa-angle-right" aria-hidden="true" style="padding-top: 15px;"></i></a>
+    {% endif %}
+
+</div>

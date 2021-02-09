@@ -1,0 +1,16 @@
+<ul class="property_sec">
+    {% for post in l_posts %}
+
+              <li>
+                <div class="rec_proprty">
+                  <div class="servicesImg"><img style="width: 84px;height: 84px;" alt="" src="{{ post.img.url }}"></div>
+                  <div class="property_info">
+                    <h4><a href="{% url 'post' post.slug %}">{{ post.title }}</a></h4>
+                    <div class="priceWrp"><a style="color: white;" href="{% url 'post' post.slug %}">المزيد</a></div>
+                  </div>
+                </div>
+              </li>
+{% endfor %}
+
+            </ul>
+

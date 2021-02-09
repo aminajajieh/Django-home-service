@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="innerHeading">
+  <div class="container">
+    <h1>من نحن</h1>
+  </div>
+</div>
+
+    <div class="innercontent">
+<div class="container">
+
+<div class="about-wrap" id="about">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="aboutImg"><img src="{{ site.img.url }}" alt=""></div>
+      </div>
+      <div class="col-lg-6">
+        <div class="about_box">
+          <div class="title">
+            <h1>معلومات عنا  </h1>
+          </div>
+            <p>{{ site.about }}</p>
+        </div>
+      </div>
+    </div>
+</div>
+
+</div>
+</div>
+<div class="innercontent">
+  <div class="container">
+    <div class="pricing_boxes row">
+
+      <!-- Plan #1 -->
+      <div class="col-lg-4">
+        <div class="plan wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+          <div class="plan-price"  style="background: #11b4f5;">
+            <h2 style="font-family: 'Tajawal', sans-serif;margin-bottom: 7px;">الهدف</h2>
+            <i style="color: whitesmoke" class="fa fa-star fa-3x " aria-hidden="true"></i>  <span class="period">{{ site.hadaf }}</span> </div>
+
+        </div>
+      </div>
+
+      <!-- Plan #3 -->
+      <div class="col-lg-4">
+        <div class="plan featured wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+          <div class="plan-price">
+            <h2 style="font-family: 'Tajawal', sans-serif;margin-bottom: 7px;">الرؤيه</h2>
+            <i style="color: whitesmoke" class="fa fa-eye fa-3x " aria-hidden="true"></i> <span class="period">{{ site.roya }}</span> </div>
+
+        </div>
+      </div>
+
+      <!-- Plan #3 -->
+      <div class="col-lg-4">
+        <div class="plan wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+          <div class="plan-price"  style="background: #11b4f5;">
+            <h2 style="font-family: 'Tajawal', sans-serif;margin-bottom: 7px;">الرساله</h2>
+            <i style="color: whitesmoke" class="fa fa-users fa-3x " aria-hidden="true"></i> <span class="period">{{ site.resala }}</span> </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>{% endblock content %}
+
