@@ -16,6 +16,8 @@ from django.db.models import Sum
 from django.contrib import admin
 from background_task.models import *
 from background_task.admin import *
+from django.contrib.sites.models import Site
+from django.contrib.sites.admin import SiteAdmin
 
 from django.db.models import Sum, Avg
 
@@ -117,7 +119,13 @@ class PostsAdmin(admin.ModelAdmin):
     actions = [a,b]
 class SiteEditAdmin(admin.ModelAdmin):
     fieldsets = (
-        (None, {"fields": ['title','content','img2','active']}),
+        ("اساسي", {
+            'classes': ('collapse',),
+            "fields": ['title','content','img2','script','active']}),
+        ("الرئيسيه", {
+            'classes': ('collapse',),
+            "fields": ['img3','img4','img5','img6','whyus1', 'whyus2', 'whyus3']
+        }),
         ("من نحن", {
             "description": "تعديل صفحة من نحن",
             'classes': ('collapse',),
@@ -128,10 +136,7 @@ class SiteEditAdmin(admin.ModelAdmin):
             'classes': ('collapse',),
             "fields": ['email', 'phone', 'address', 'facebook', 'instagram', 'twitter','whatsapp']
         }),
-        ("لماذا نحن", {
-            'classes': ('collapse',),
-            "fields": ['whyus1', 'whyus2','whyus3']
-        }),
+
     )
 
     if SiteEdit.objects.count() >=1:
@@ -154,8 +159,20 @@ class TAS2(CompletedTaskAdmin):
         Return empty perms dict thus hiding the model from admin index.
         """
         return {}
+class SiteeAdmin(admin.ModelAdmin):
+    list_display = ('domain', 'name')
 
+    def has_delete_permission(self, request, obj=Site):
+        return False
 
+    def has_add_permission(self, request, obj=Site):
+        return False
+    pass
+#------------------------------------------
+admin.site.unregister(Group)
+admin.site.unregister(CompletedTask)
+admin.site.unregister(Task)
+admin.site.unregister(Site)
 ###########################################
 admin.site.register(Category,CategoryAdmin)
 admin.site.register(Service,ServiceAdmin)
@@ -166,14 +183,11 @@ admin.site.register(Worker,WorkerAdmin)
 admin.site.register(Bond,BondAdmin)
 admin.site.register(Posts,PostsAdmin)
 admin.site.register(SiteEdit,SiteEditAdmin)
-admin.site.unregister(CompletedTask)
-admin.site.unregister(Task)
-
+admin.site.register(Site,SiteeAdmin)
 admin.site.register(Task,TAS )
 admin.site.register(CompletedTask,TAS2)
 
-#------------------------------------------
-admin.site.unregister(Group)
+
 
 
 

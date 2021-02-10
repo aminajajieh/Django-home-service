@@ -154,7 +154,7 @@ class ClientService(models.Model):
                 f'انتهاء خدمة {self.client.name}',
                 'fa-info',
                 Notification.COLOR_DANGER,
-                url=f'http://127.0.0.1:8000/admin/app/clientservice/{self.id}/'
+                url=f'http://site141.pythonanywhere.com/admin/app/clientservice/{self.id}/'
             )
 
         elif datetime.date.today() >= ar and self.send2==False:
@@ -168,7 +168,7 @@ class ClientService(models.Model):
                 f'سوف تنتهي خدمة {self.client.name}',
                 'fa-info',
                 Notification.COLOR_WARNING,
-                url=f'http://127.0.0.1:8000/admin/app/clientservice/{self.id}/')
+                url=f'http://site141.pythonanywhere.com/admin/app/clientservice/{self.id}/')
         super(ClientService, self).save(*args, **kwargs)
 
     class Meta:
@@ -229,9 +229,14 @@ class Posts(models.Model):
 class SiteEdit(models.Model):
     title = models.CharField(max_length=1000,verbose_name='اسم الموقع')
     content = models.TextField(verbose_name='وصف الموقع')
+    script = models.TextField(null=True,blank=True,help_text='هذا حقل اكواد اضافيه لموقعك كحقل تحقق احصائيات جوجل مثلا',verbose_name='اكواد اضافيه')
     about = models.TextField(null=True,blank=True,verbose_name='من نحن')
     img = models.ImageField(default='image.png',verbose_name='صورة من نحن')
     img2 = models.ImageField(default='image.png',verbose_name='لوجو الموقع')
+    img3 = models.ImageField(help_text='يفضل ان يكون 543 * 555',default='image.png',verbose_name='صورة وصف الموقع')
+    img4 = models.ImageField(help_text='يفضل ان يكون 630 * 1920',default='image.png', verbose_name='صورة السلايدر1')
+    img5 = models.ImageField(help_text='يفضل ان يكون 451 * 1920',default='image.png', verbose_name='صورة السلايدر2')
+    img6 = models.ImageField(help_text='يفضل ان يكون 630 * 1920',default='image.png', verbose_name='صورة السلايدر3')
     email = models.EmailField(verbose_name='ايميل الموقع')
     phone = models.CharField(max_length=1000,verbose_name='رقم الهاتف للموقع')
     address = models.TextField(verbose_name='عنوان المكتب ')

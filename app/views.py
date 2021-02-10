@@ -53,14 +53,18 @@ def post(request,slug):
     site = SiteEdit.objects.get(id=1)
 
     post = get_object_or_404(Posts,slug=slug)
-    return render(request,'post.html',context={'post':post,'title':post.title,'site':site})
+    return render(request,'post.html',context={'post':post,'title':post.title,'site':site,'descripe':post.content,'tags':post.content})
 def home(request):
     for i in ClientService.objects.all():
         i.save()
     site = SiteEdit.objects.get(id=1)
+    img4 = '"'+str(site.img4.url)+'"'
+    img5 = '"'+str(site.img5.url)+'"'
+    img6 = '"'+str(site.img6.url)+'"'
 
 
-    return render(request,'home.html',context={'title':'home','site':site})
+
+    return render(request,'home.html',context={'img4':img4,'img5':img5,'img6':img6,'title':site.title,'site':site,'descripe':site.content,'tags':site.content})
 
 
 
@@ -79,13 +83,13 @@ def blog(request):
         posts = paginator.page(1)
     except EmptyPage:
         posts = paginator.page(paginator.num_page)
-    return render(request,'blog.html',context={'site':site,'page': page, 'posts':posts,'title': 'المقالات'})
+    return render(request,'blog.html',context={'site':site,'page': page, 'posts':posts,'title': 'المقالات','descripe':site.content,'tags':site.content})
 
 def about(request):
     for i in ClientService.objects.all():
         i.save()
     site = SiteEdit.objects.get(id=1)
-    return render(request,'about.html',context={'site':site})
+    return render(request,'about.html',context={'site':site,'title':'من نحن','descripe':site.content,'tags':site.content})
 def close(request):
     for i in ClientService.objects.all():
         i.save()
@@ -105,7 +109,7 @@ def contact(request):
             comment_form = Contact()
     else:
         comment_form = Contact()
-    return render(request,'contact-us.html',context={'site':site,'form':comment_form})
+    return render(request,'contact-us.html',context={'title':'تواصل معنا','site':site,'form':comment_form,'descripe':site.content,'tags':site.content})
 from background_task import background
 from django.contrib.auth.models import User
 from .models import ClientService

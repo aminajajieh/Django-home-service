@@ -21,23 +21,28 @@ from app.views import *
 from django.conf.urls.static import static
 from django.conf import settings
 from app.models import SiteEdit
+from app.sitemaps import StaticViewSitemap ,PostSitemap
+from django.contrib.sitemaps.views import sitemap
+sitemaps = {
+    'static': StaticViewSitemap,
+    'post': PostSitemap
+}
 
-urlpatterns = [ path('admin/', admin.site.urls),url(r'^see-all/$', see_all_notification, name='see_all_notification'), ]
+urlpatterns = [path('admin/', admin.site.urls),url(r'^see-all/$',
+               see_all_notification, name='see_all_notification'),
+               path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name="sitemap"),]
 
 site = SiteEdit.objects.get(id = 1)
 if site.active == False:
     urlpatterns+=[path('', close, name='close'),]
 elif site.active == True:
-    urlpatterns += [
-                      path('', home, name='home'),
-                      path('worker/<str:id>', worker, name='worker'),
-                      path('client/<str:id>', client, name='client'),
-                      path('detail/<str:slug>', post, name='post'),
-                      path('blog/', blog, name='blog'),
-                      path('about/',about,name='about'),
-                      path('contact-us/',contact,name='contact'),
-
-                  ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += [path('', home, name='home'),
+                    path('worker/<str:id>', worker, name='worker'),
+                    path('client/<str:id>', client, name='client'),
+                    path('detail/<str:slug>', post, name='post'),
+                    path('blog/', blog, name='blog'),
+                    path('about/',about,name='about'),
+                    path('contact-us/',contact,name='contact'),] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 

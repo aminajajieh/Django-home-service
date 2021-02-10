@@ -43,8 +43,11 @@ INSTALLED_APPS = [
     'admin_auto_filters',
     'ckeditor',
     'background_task',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
 
 ]
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
