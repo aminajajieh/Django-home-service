@@ -21,8 +21,22 @@
 <link href="{% static 'css/style.css' %}" rel="stylesheet">
 <title>{{ title }}</title>
     <style>
+        .social_me4ia{padding:10px 0; margin-bottom: 0;}
+.social_me4ia li{display:inline-block; padding:0 1px;}
+.social_me4ia li a{ font-size:25px; color: white; width:35px; height:35px; line-height:30px; text-align:center; border-radius:100%; display:block;}
+        .coco-title:after {
+  content: "";
+  width: 40px;
+  height: 7px;
+  background-color: #0075ff;
+  position: absolute;
+  left: 50%;
+  bottom: -1px;
+  margin-left: -20px;
+  border-radius: 6px;
+}
 
-        p{
+        p,span{
             text-align: right;
             direction: rtl;
         }
@@ -89,26 +103,21 @@ font-family: 'Tajawal', sans-serif;
   <div class="container">
     <div class="row">
       <div class="col-lg-6 col-md-4">
-        <ul class="social_media style_none">
-          <li><a href="{{ site.facebook }}"><i class="fab fa-facebook-f" aria-hidden="true" style="
+        <ul class="social_me4ia style_none">
+          <li><a style="background-color: rgb(14 141 241)" href="{{ site.facebook }}"><i class="fab fa-facebook-f" aria-hidden="true" style="
     padding-top: 5px;
 "></i></a></li>
-          <li><a href="{{ site.twitter }}"><i class="fab fa-twitter" aria-hidden="true" style="
-    padding-top: 5px;
-"></i></a></li>
-          <li><a href="{{ site.instagram }}"><i class="fab fa-instagram" aria-hidden="true" style="
-    padding-top: 5px;
-"></i></a></li>
-          <li><a href="https://api.whatsapp.com/send/?phone={{ site.whatsapp }}"><i class="fab fa-whatsapp" aria-hidden="true" style="
+          <li><a style="background-color: #1ee810;"  href="https://api.whatsapp.com/send/?phone={{ site.whatsapp }}"><i class="fab fa-whatsapp" aria-hidden="true" style="
     padding-top: 5px;
 "></i></a></li>
         </ul>
       </div>
       <div class="col-lg-6 col-md-8">
         <div class="top_right">
-          <div class="topbar_phone"></div>
+          <div class="topbar_phone"><a href="tel:{{ site.phone }}"><i class="fas fa-phone-alt" aria-hidden="true"></i> {{ site.phone }} </a></div>
         </div>
       </div>
+
     </div>
   </div>
 </div>
@@ -120,22 +129,41 @@ font-family: 'Tajawal', sans-serif;
     <div class="row">
       <div class="col-lg-3 navbar navbar-expand-lg navbar-light">
         <div class="header_logo"><a href="{% url 'home' %}"><img style="
-    width: 269px;
-    height: 76px;" alt="" src="{{ site.img2.url }}"></a></div>
+    width: 100px;
+"alt="" src="{{ site.img2.url }}"></a></div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
       </div>
       <div class="col-lg-9">
         <nav class="navbar navbar-expand-lg navbar-light"> <a class="navbar-brand" href="/"></a>
           <div class="navbar-collapse collapse" id="navbarSupportedContent" style="">
             <button class="close-toggler" type="button" data-toggle="offcanvas"> <span><i class="fas fa-times-circle" aria-hidden="true"></i></span> </button>
-            <ul class="navbar-nav mr-auto " dir="rtl">
-              <li class="nav-item active"><a class="nav-link" href="/"> الرئيسيه </a></li>
-              <li class="nav-item active"><a class="nav-link" href="/blog"> مقالات </a></li>
-              <li class="nav-item active"><a class="nav-link" href="/about"> من نحن </a></li>
-              <li class="nav-item active"><a class="nav-link" href="/contact-us"> تواصل معنا </a></li>
+{% block ul %}
+                <ul class="navbar-nav mr-auto " dir="rtl">
+              <li class="nav-item active  text-center" style="
+    padding-bottom: 10px;
+    height: 72px;
+"><a style="
+padding-bottom: 5px;" class="nav-link  text-center" href="/"> الرئيسيه </a></li>
+              <li class="nav-item active  text-center" style="
+    padding-bottom: 10px;
+    height: 72px;
+"><a class="nav-link  text-center"  style="
+padding-bottom: 5px;"  href="/blog"> مقالات </a></li>
+              <li class="nav-item active  text-center" style="
+    padding-bottom: 10px;
+    height: 72px;
+"><a class="nav-link  text-center"  style="
+padding-bottom: 5px;"  href="/about"> من نحن </a></li>
+              <li class="nav-item active  text-center" style="
+    padding-bottom: 10px;
+    height: 72px;
+"><a class="nav-link  text-center" style="
+padding-bottom: 5px;"  href="/contact-us"> تواصل معنا </a></li>
 
 
             </ul>
+
+              {% endblock ul %}
           </div>
         </nav>
       </div>
@@ -150,46 +178,48 @@ font-family: 'Tajawal', sans-serif;
 
  {% endblock content %}
 <!--Footer Start-->
-<footer class="footer bg-style wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+<footer class="footer bg-style wow fadeInUp" style="visibility: visible;animation-name: fadeInUp;padding-top: 25px;">
   <div class="container">
     <div class="footer-upper">
       <div class="row">
 
-        <div class="col-lg-3 col-md-3">
+        <div class="col-lg-4 col-md-3">
           <div class="footer-widget quick-links">
-            <h3 class="title"><div class="header_logo"><a href="{% url 'home' %}"><img style="width: 269px;height: 76px;" alt="" src="{{ site.img2.url }}"></a></div></h3>
-<p style="text-align: right;"> {{ site.content }}</p>
+            <h1 class="title title_center"><div class="header_logo"><a href="{% url 'home' %}"><img style="
+    width: 100px;
+" alt="" src="{{ site.img2.url }}"></a></div></h1>
+<p style="text-align: right;">{{ site.small }}</p>
           </div>
         </div>
 
+        <div class="col-lg-1 col-md-3">
+        </div>
 
 
-        <div class="col-lg-4 col-md-5">
-          <div class="footer-widget contact">
-            <h3 class="title" style="text-align: right; font-family: 'Tajawal', sans-serif;">اخر المقالات </h3>
-            <ul class="property_sec">
-              {% latest_posts %}
-
+        <div class="col-lg-3 col-md-3 " style="direction: rtl;">
+          <div class="footer-widget quick-links">
+            <h1 class="title title_center" style="  font-size: 20px;text-align: center; font-family: 'Tajawal', sans-serif;">روابط سريعه</h1>
+            <ul style="text-align: center;">
+              <li><a href="{% url 'home' %}"> الرئيسيه</a> </li>
+              <li><a href="/abouy">من نحن</a> </li>
+              <li><a href="/blog"> مقالات</a> </li>
+              <li><a href="/contact-us"> تواصل معنا</a> </li>
             </ul>
           </div>
         </div>
+                  <div class="col-lg-1 col-md-3">
+        </div>
         <div class="col-lg-3 col-md-4">
           <div class="footer-widget contact">
-            <h3 class="title" style="text-align: right; font-family: 'Tajawal', sans-serif;">معلومات التواصل</h3>
+            <h1 class="title title_center" style="  font-size: 20px; text-align: center; font-family: 'Tajawal', sans-serif;">معلومات التواصل</h1>
             <ul class="footer-adress">
               <li class="footer_address"> <i class="fas fa-map-signs" aria-hidden="true"></i> <span>{{ site.address }}</span> </li>
               <li class="footer_email"> <i class="fas fa-envelope" aria-hidden="true"></i> <span><a href="mailto:{{ site.email }}"> {{ site.email }} </a></span> </li>
               <li class="footer_phone"> <i class="fas fa-phone-alt" aria-hidden="true"></i> <span><a href="tel:{{ site.phone }}"> {{ site.phone }}</a></span> </li>
             </ul>
-            <div class="social-icons footer_icon">
-              <ul>
+            <div class="social-icons footer_icon " >
+              <ul style="text-align: center;">
                 <li><a href="{{ site.facebook }}"><i class="fab fa-facebook-f" aria-hidden="true" style="
-    padding-top: 7px;
-"></i></a></li>
-                <li><a href="{{ site.twitter }}"><i class="fab fa-twitter" aria-hidden="true" style="
-    padding-top: 7px;
-"></i></a></li>
-                <li><a href="{{ site.instagram }}"><i class="fab fa-instagram" aria-hidden="true" style="
     padding-top: 7px;
 "></i></a></li>
                 <li><a style=" background: #1bff00;
@@ -226,7 +256,7 @@ font-family: 'Tajawal', sans-serif;
 <!-- general script file -->
 <script src="{% static 'js/wow.js' %}"></script>
 <script src="{% static 'js/script.js' %}"></script>
-<script src="{% static 'b.js" crossorigin="anonymous"></script><style media="all" id="fa-v4-font-face">/*!
+<script src="b.js" crossorigin="anonymous"></script><style media="all" id="fa-v4-font-face">/*!
  * Font Awesome Free 5.15.2 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */@font-face{font-family:"FontAwesome";font-display:block;src:url(https://ka-f.fontawesome.com/releases/v5.15.2/webfonts/free-fa-solid-900.eot);src:url(https://ka-f.fontawesome.com/releases/v5.15.2/webfonts/free-fa-solid-900.eot?#iefix) format("embedded-opentype"),url(https://ka-f.fontawesome.com/releases/v5.15.2/webfonts/free-fa-solid-900.woff2) format("woff2"),url(https://ka-f.fontawesome.com/releases/v5.15.2/webfonts/free-fa-solid-900.woff) format("woff"),url(https://ka-f.fontawesome.com/releases/v5.15.2/webfonts/free-fa-solid-900.ttf) format("truetype"),url(https://ka-f.fontawesome.com/releases/v5.15.2/webfonts/free-fa-solid-900.svg#fontawesome) format("svg")}@font-face{font-family:"FontAwesome";font-display:block;src:url(https://ka-f.fontawesome.com/releases/v5.15.2/webfonts/free-fa-brands-400.eot);src:url(https://ka-f.fontawesome.com/releases/v5.15.2/webfonts/free-fa-brands-400.eot?#iefix) format("embedded-opentype"),url(https://ka-f.fontawesome.com/releases/v5.15.2/webfonts/free-fa-brands-400.woff2) format("woff2"),url(https://ka-f.fontawesome.com/releases/v5.15.2/webfonts/free-fa-brands-400.woff) format("woff"),url(https://ka-f.fontawesome.com/releases/v5.15.2/webfonts/free-fa-brands-400.ttf) format("truetype"),url(https://ka-f.fontawesome.com/releases/v5.15.2/webfonts/free-fa-brands-400.svg#fontawesome) format("svg")}@font-face{font-family:"FontAwesome";font-display:block;src:url(https://ka-f.fontawesome.com/releases/v5.15.2/webfonts/free-fa-regular-400.eot);src:url(https://ka-f.fontawesome.com/releases/v5.15.2/webfonts/free-fa-regular-400.eot?#iefix) format("embedded-opentype"),url(https://ka-f.fontawesome.com/releases/v5.15.2/webfonts/free-fa-regular-400.woff2) format("woff2"),url(https://ka-f.fontawesome.com/releases/v5.15.2/webfonts/free-fa-regular-400.woff) format("woff"),url(https://ka-f.fontawesome.com/releases/v5.15.2/webfonts/free-fa-regular-400.ttf) format("truetype"),url(https://ka-f.fontawesome.com/releases/v5.15.2/webfonts/free-fa-regular-400.svg#fontawesome) format("svg");unicode-range:U+f004-f005,U+f007,U+f017,U+f022,U+f024,U+f02e,U+f03e,U+f044,U+f057-f059,U+f06e,U+f070,U+f075,U+f07b-f07c,U+f080,U+f086,U+f089,U+f094,U+f09d,U+f0a0,U+f0a4-f0a7,U+f0c5,U+f0c7-f0c8,U+f0e0,U+f0eb,U+f0f3,U+f0f8,U+f0fe,U+f111,U+f118-f11a,U+f11c,U+f133,U+f144,U+f146,U+f14a,U+f14d-f14e,U+f150-f152,U+f15b-f15c,U+f164-f165,U+f185-f186,U+f191-f192,U+f1ad,U+f1c1-f1c9,U+f1cd,U+f1d8,U+f1e3,U+f1ea,U+f1f6,U+f1f9,U+f20a,U+f247-f249,U+f24d,U+f254-f25b,U+f25d,U+f271-f274,U+f279,U+f28b,U+f28d,U+f2b5-f2b6,U+f2b9,U+f2bb,U+f2bd,U+f2c1-f2c2,U+f2d0,U+f2d2,U+f2dc,U+f2ed,U+f3a5,U+f3d1,U+f410}@font-face{font-family:"FontAwesome";font-display:block;src:url(https://ka-f.fontawesome.com/releases/v5.15.2/webfonts/free-fa-v4deprecations.eot);src:url(https://ka-f.fontawesome.com/releases/v5.15.2/webfonts/free-fa-v4deprecations.eot?#iefix) format("embedded-opentype"),url(https://ka-f.fontawesome.com/releases/v5.15.2/webfonts/free-fa-v4deprecations.woff2) format("woff2"),url(https://ka-f.fontawesome.com/releases/v5.15.2/webfonts/free-fa-v4deprecations.woff) format("woff"),url(https://ka-f.fontawesome.com/releases/v5.15.2/webfonts/free-fa-v4deprecations.ttf) format("truetype"),url(https://ka-f.fontawesome.com/releases/v5.15.2/webfonts/free-fa-v4deprecations.svg#fontawesome) format("svg");unicode-range:U+f003,U+f006,U+f014,U+f016,U+f01a-f01b,U+f01d,U+f040,U+f045-f047,U+f05c-f05d,U+f07d-f07e,U+f087-f088,U+f08a-f08b,U+f08e,U+f090,U+f096-f097,U+f0a2,U+f0e4-f0e6,U+f0ec-f0ee,U+f0f5-f0f7,U+f10c,U+f112,U+f114-f115,U+f11d,U+f123,U+f132,U+f145,U+f147-f149,U+f14c,U+f166,U+f16a,U+f172,U+f175-f178,U+f18e,U+f190,U+f196,U+f1b1,U+f1d9,U+f1db,U+f1f7,U+f20c,U+f219,U+f230,U+f24a,U+f250,U+f278,U+f27b,U+f283,U+f28c,U+f28e,U+f29b-f29c,U+f2b7,U+f2ba,U+f2bc,U+f2be,U+f2c0,U+f2c3,U+f2d3-f2d4}</style><style media="all" id="fa-v4-shims">/*!

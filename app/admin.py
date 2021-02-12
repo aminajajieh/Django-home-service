@@ -121,7 +121,7 @@ class SiteEditAdmin(admin.ModelAdmin):
     fieldsets = (
         ("اساسي", {
             'classes': ('collapse',),
-            "fields": ['title','content','img2','script','active']}),
+            "fields": ['title','img2','content','small','script','active']}),
         ("الرئيسيه", {
             'classes': ('collapse',),
             "fields": ['img3','img4','img5','img6','whyus1', 'whyus2', 'whyus3']

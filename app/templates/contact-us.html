@@ -1,4 +1,31 @@
 {% extends 'base.html' %}
+{% block ul %}
+                <ul class="navbar-nav mr-auto " dir="rtl">
+              <li class="nav-item active " style="
+    padding-bottom: 10px;
+    height: 72px;
+"><a style="
+padding-bottom: 5px;" class="nav-link" href="/"> الرئيسيه </a></li>
+              <li class="nav-item active " style="
+    padding-bottom: 10px;
+    height: 72px;
+"><a class="nav-link"  style="
+padding-bottom: 5px;"  href="/blog"> مقالات </a></li>
+              <li class="nav-item active" style="
+    padding-bottom: 10px;
+    height: 72px;
+"><a class="nav-link"  style="
+padding-bottom: 5px;"  href="/about"> من نحن </a></li>
+              <li class="nav-item active coco-title" style="
+    padding-bottom: 10px;
+    height: 72px;
+"><a class="nav-link" style="
+padding-bottom: 5px;"  href="/contact-us"> تواصل معنا </a></li>
+
+
+            </ul>
+
+              {% endblock ul %}
 {% block content %}
     <div class="innerHeading">
   <div class="container">
@@ -16,7 +43,7 @@
   <div class="container">
     <div style="text-align: center" class="getTouch">ابق على تواصل</div>
     <div class="row formcol">
-      <div class="col-lg-8">
+      <div class="col-lg-12">
         <form class="form mb-md50" id="contact-form" method="POST"  novalidate="">
                     {% csrf_token %}
 
@@ -51,11 +78,6 @@
               </div>
             </div>          </div>
         </form>
-      </div>
-      <div class="col-lg-4">
-        <div class="map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021674.414950062!2d41.11423519392498!3d42.30298232333148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40440cd7e64f626b%3A0x4f907964122d4ac2!2sGeorgia!5e0!3m2!1sen!2s!4v1545313690667" width="100%" height="330" frameborder="0" style="border:0" allowfullscreen=""></iframe>
-        </div>
       </div>
     </div>
   </div>

@@ -99,6 +99,7 @@ jsonfield==3.1.0
 kombu==5.0.2
 l18n==2020.6.1
 MarkupPy==1.14
+mysqlclient @ file:///E:/projects/binary%20wheels/mysqlclient-1.4.6-cp38-cp38-win_amd64.whl
 numpy==1.19.5
 oauthlib==3.1.0
 odfpy==1.4.1

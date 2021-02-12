@@ -1,4 +1,31 @@
 {% extends 'base.html' %}
+{% block ul %}
+                <ul class="navbar-nav mr-auto " dir="rtl">
+              <li class="nav-item active " style="
+    padding-bottom: 10px;
+    height: 72px;
+"><a style="
+padding-bottom: 5px;" class="nav-link" href="/"> الرئيسيه </a></li>
+              <li class="nav-item active " style="
+    padding-bottom: 10px;
+    height: 72px;
+"><a class="nav-link"  style="
+padding-bottom: 5px;"  href="/blog"> مقالات </a></li>
+              <li class="nav-item active coco-title" style="
+    padding-bottom: 10px;
+    height: 72px;
+"><a class="nav-link"  style="
+padding-bottom: 5px;"  href="/about"> من نحن </a></li>
+              <li class="nav-item active " style="
+    padding-bottom: 10px;
+    height: 72px;
+"><a class="nav-link" style="
+padding-bottom: 5px;"  href="/contact-us"> تواصل معنا </a></li>
+
+
+            </ul>
+
+              {% endblock ul %}
 {% block content %}
 <div class="innerHeading">
   <div class="container">
@@ -16,8 +43,8 @@
       </div>
       <div class="col-lg-6">
         <div class="about_box">
-          <div class="title">
-            <h1>معلومات عنا  </h1>
+          <div class=" text-center title title_center">
+            <h1 >معلومات عنا  </h1>
           </div>
             <p>{{ site.about }}</p>
         </div>

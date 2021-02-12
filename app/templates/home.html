@@ -1,6 +1,32 @@
 {% extends 'base.html' %}
 
+{% block ul %}
+                <ul class="navbar-nav mr-auto " dir="rtl">
+              <li class="nav-item active coco-title" style="
+    padding-bottom: 10px;
+    height: 72px;
+"><a style="
+padding-bottom: 5px;" class="nav-link" href="/"> الرئيسيه </a></li>
+              <li class="nav-item active" style="
+    padding-bottom: 10px;
+    height: 72px;
+"><a class="nav-link"  style="
+padding-bottom: 5px;"  href="/blog"> مقالات </a></li>
+              <li class="nav-item active" style="
+    padding-bottom: 10px;
+    height: 72px;
+"><a class="nav-link"  style="
+padding-bottom: 5px;"  href="/about"> من نحن </a></li>
+              <li class="nav-item active" style="
+    padding-bottom: 10px;
+    height: 72px;
+"><a class="nav-link" style="
+padding-bottom: 5px;"  href="/contact-us"> تواصل معنا </a></li>
 
+
+            </ul>
+
+              {% endblock ul %}
 {% block content %}
 
 <div class="">
@@ -83,8 +109,8 @@
     padding-top: 30px;
 "></div>
                                     <div class="text-holder">
-                                <h4><a href="#">الأمانه</a></h4>
-                                        <p>{{ site.why2 }}</p>
+                                <h4 style="color: #54ceff;"><a >الأمانه</a></h4>
+                                        <p style="text-align: center;">{{ site.whyus2 }}</p>
                                     </div>
                                 </li>
                                 <!--End Single working  Box-->
@@ -96,8 +122,8 @@
     padding-top: 30px;
 "></div>
                                     <div class="text-holder">
-                                <h4><a href="#">الكفاءه</a></h4>
-                                        <p>{{ site.why3 }}</p>
+                                <h4 style="color: #54ceff;"><a >الكفاءه</a></h4>
+                                        <p style="text-align: center;">{{ site.whyus3 }}</p>
                                     </div>
 
 
@@ -112,8 +138,8 @@
     padding-top: 30px;
 "></div>
                                     <div class="text-holder">
-                                <h4><a href="#">الخبره</a></h4>
-                                        <p>{{ site.why1 }}</p>
+                                <h4 style="color: #54ceff;"><a >الخبره</a></h4>
+                                        <p style="text-align: center;">{{ site.whyus1 }}</p>
                                     </div>
 
 
@@ -125,7 +151,10 @@
 
 
 <!-- Blog Start -->
-<div class="blog-wrap">
+<div class="blog-wrap" style="
+    padding-bottom: 10px;
+    padding-top: 30px;
+">
 </div>
 <!-- Blog End -->
 

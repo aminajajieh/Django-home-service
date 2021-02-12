@@ -214,10 +214,9 @@ class Posts(models.Model):
         return url
 
     def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
         if not self.slug:
-            self.slug = slugify(self.title)
-            if not self.slug:
-                self.slug = arabic_slugify(self.title)
+            self.slug = arabic_slugify(self.title)
 
 
         super(Posts, self).save(*args, **kwargs)
@@ -251,6 +250,7 @@ class SiteEdit(models.Model):
     roya = models.CharField(default='#',max_length=1000,verbose_name='الرؤيه')
     resala = models.CharField(default='#',max_length=1000,verbose_name='الرساله')
     hadaf = models.CharField(default='#',max_length=1000,verbose_name='الهدف')
+    small = models.TextField(null=True,blank=True,verbose_name=' نبذه الفوتر')
 
 
     def __str__(self):
